@@ -35,7 +35,40 @@ Enter into the folder.
 
 Check first if Tmux is installed or not by trying to install tmux ```sudo apt-get install tmux```
 
-Run ```pip install -r requirments.txt``` (Python 2), or ```pip3 install -r requirments.txt``` (Python 3). Prefer to use Python3
+Check also if Pyhton3 Pip is installed or not. To check run the command ```sudo apt-get install python3-pip```
+
+To upgrade pip to latest version run the following command : ```pip3 install --upgrade pip```
+
+NOTE: pip has dropped support for Python 2 and 3.5. You will need to use a version-specific branch.
+Do the following steps if your python3 version is 2 or 3.5
+
+Step 1: This PPA contains more recent Python versions packaged for Ubuntu. Install ppa by running the following command.
+
+```sudo add-apt-repository ppa:deadsnakes/ppa```
+
+Step 2: Now, update your packages by running the following command.
+
+```sudo apt-get update```
+
+Step 3: install Python version 3.7
+
+```sudo apt-get install python3.7```
+
+Step 4: Install pip by running the following command.
+
+```sudo apt install python3-pip```
+
+Step 5 : Check Pip3 version by ```pip3 --version``` if its latest skip Step 6
+
+Step 6: To upgrade pip3 to latest
+
+```sudo -H pip3 install --upgrade pip```
+
+Step 7 : Set priority of the machine to Python 3.7 we installed
+
+```sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 2```
+
+Step 8: Run ```pip install -r requirments.txt``` (Python 2), or ```pip3 install -r requirments.txt``` (Python 3). Prefer to use Python3 always. 
 
 # Change Config File
 
@@ -57,7 +90,9 @@ Voila! you bot has started running.
 
 You can now close the SSH window or come out of screen by pressing `ctrl`+`b` and then `d`
 
-If you would like to see whats happening in your program you can write ```tmux attach <screenname or screennumber>```
+If you would like to see whats happening in your program you can write ```tmux attach -t <screenname or screennumber>```
+
+NOTE: we have deployed with a name ```Bot```.
 
 To kill the screen, run command ```tmux kill-session```
 
